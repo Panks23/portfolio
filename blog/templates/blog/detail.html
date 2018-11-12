@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PKSingh</title>
+    <title>{{blog.title}}</title>
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -20,13 +21,13 @@
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{% url 'home' %}">PK Singh</a>
+    <a class="navbar-brand" href="{% url 'home'%}">PK Singh</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto">
-        <a class="nav-item nav-link" href="{% url 'allblog'%}">Blog</a>
+        <a class="nav-item nav-link active" href="{%url 'allblog'%}">Blog</a>
         <a class="nav-item nav-link" href="{% static 'resume.pdf'%}">Resume</a>
         <a class="nav-item nav-link" href="https://www.linkedin.com/in/pankaj-kumar-singh-852047140/">LinkedIn</a>
         <a class="nav-item nav-link" href="https://www.instagram.com/al_sah_him_30/">Instagram</a>
@@ -37,35 +38,27 @@
 
     <main role="main">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Hi I'm Pankaj</h1>
-          <p class="lead text-muted">I have over 15 years of experience working in data science. Currently, I work as Asana’s Senior Data Manager, improving products and services for our customers by using advanced analytics, standing up big-data analytical tools, creating and maintaining models, and onboarding compelling new data sets.</p>
-          <p>
-            <a href="mailto:atlharry46@gmail.com" class="btn btn-primary my-2">Email Me</a>
-          </p>
-          <img src="{% static 'pankaj.JPG'%}" alt="" height='400' width="300">
-        </div>
-      </section>
+      <div class="container">
+      <br/>
+      <br/>
+      <h2>Blog</h2>
+      <hr>
 
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-            {% for job in jobs.all %}
-            <div class="col-md-4">
-              <div class="card mb-4 shadow-sm">
-                <img class="card-img-top" src="{{job.image.url}}"alt="Card image cap"/>
-                <div class="card-body">
-                  <p class="card-text">{{job.summary}}</p>
-                </div>
+      <div class="row mb-2">
+              <div class="card-deck">
+              <div class="card">
+              <img class="card-img-top" src="{{blog.image.url}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">{{blog.title}}</h5>
+                <p class="card-text">{{blog.body}}</p>
+              </div>
+              <div class="card-footer">
+                <small class="text-muted">{{blog.pub_date}}</small>
+              </div>
+              </div>
               </div>
             </div>
-            {% endfor %}
-          </div>
-        </div>
       </div>
-
     </main>
 
     <footer class="text-muted">
